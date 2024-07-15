@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Product</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Edit Product</h1>
+    
+ <%= render partial: "form", locals: { product: @product } %>
+  </div>
+</body>
+</html>

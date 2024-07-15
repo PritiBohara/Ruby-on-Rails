@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %>
+
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <% if user_signed_in? %>
+          <%= link_to "Edit Password", edit_password_path, class: "nav-link" %>
+          <%= button_to "Log out", session_path, method: :delete, class: "nav-button" %>
+        <% else %>
+          <%= link_to "Sign Up", new_registration_path, class: "nav-link" %>
+          <%= link_to "Log in", new_session_path, class: "nav-link" %>
+        <% end %>
+      </nav>
+    </header>
+
+    <main>
+      <% flash.each do |key, message| %>
+        <div class="flash <%= key %>"><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+
+        <%= javascript_include_tag 'https://code.jquery.com/jquery-3.5.1.slim.min.js' %>
+        <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js' %>
+        <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' %>
+    </main>
+
+    <footer>
+      <p>&copy; <%= Time.current.year %> Your Company. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
