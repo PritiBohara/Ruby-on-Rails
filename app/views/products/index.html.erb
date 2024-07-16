@@ -15,6 +15,7 @@
     <% end %>
 
     <%= link_to 'Add New Product', new_product_path, class: 'btn btn-primary', role: 'button' %>
+<%= link_to 'Export to Excel', export_excel_products_path(format: :xlsx), method: :get %>
   </div>
 
   <table>
@@ -38,7 +39,8 @@
           <td><%= product.supplier_name %></td>
           <td>
             <%= link_to '✏️', edit_product_path(product), class: "btn btn-sm btn-primary" %>
-            <%= link_to '🗑️', product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+            <%= link_to '🔍', product_path(product), class: "btn btn-sm btn-info" %>
+            <%= button_to '🗑️', product_path(product), method: :delete, data: { confirm: 'Are you sure?', turbo: false }, class: "btn btn-sm btn-danger" %>
           </td>
         </tr>
       <% end %>

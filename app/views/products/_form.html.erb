@@ -1,38 +1,50 @@
-<%= form_with model: product, local: true, class: 'mt-4' do |form| %>
-  <% if product.errors.any? %>
+<%= form_with model: @product, local: true, class: 'mt-4' do |form| %>
+  <% if @product.errors.any? %>
     <div class="alert alert-danger">
       <h4 class="alert-heading">Error(s) prevented this product from being saved:</h4>
       <ul>
-        <% product.errors.full_messages.each do |message| %>
+        <% @product.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="form-group">
+<div class="form-row">
+  <div class="form-group col-md-6">
     <%= form.label :name, "Product Name" %>
     <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group col-md-6">
     <%= form.label :supplier_name, "Supplier Name" %>
     <%= form.text_field :supplier_name, class: "form-control" %>
   </div>
-
-  <div class="form-group">
-    <%= form.label :purchase_price, "Purchase Price" %>
-    <%= form.number_field :purchase_price, step: 0.01, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :gst_percentage, "GST Percentage (%)" %>
-    <%= form.number_field :gst_percentage, step: 0.01, class: "form-control" %>
-  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= form.label :base_price, "Base Price" %>
+      <%= form.number_field :base_price, step: 0.01, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :profit_percentage, "Profit Percentage (%)" %>
-    <%= form.number_field :profit_percentage, step: 0.01, class: "form-control" %>
+    <div class="form-group col-md-4">
+      <%= form.label :gst_percentage, "GST Percentage (%)" %>
+      <%= form.number_field :gst_percentage, step: 0.01, class: "form-control" %>
+    </div>
+
+ <div class="form-group  col-md-4">
+    <%= form.check_box :is_inclusive, class: "form-check-input" %>
+    <%= form.label :is_inclusive, "Is Inclusive", class: "form-check-label" %>
+  </div>
+    <%
+=begin%>
+ <div class="form-group col-md-4">
+      <%= form.label :profit_percentage, "Profit Percentage (%)" %>
+      <%= form.number_field :profit_percentage, step: 0.01, class: "form-control" %>
+    </div> 
+<%
+=end%>
   </div>
 
   <div class="form-group">
@@ -40,7 +52,20 @@
     <%= form.number_field :sales_price, step: 0.01, class: "form-control" %>
   </div>
 
+ 
+
+  <%
+=begin%>
+ <div class="form-group">
+    <%= form.label :purchase_price, "Purchase Price" %>
+    <%= form.number_field :purchase_price, step: 0.01, class: "form-control", disabled: true %>
+  </div> 
+<%
+=end%>
+
   <div class="form-group">
-    <%= form.submit product.new_record? ? "Add Product" : "Update Product", class: "btn btn-primary" %>
+    <%= form.submit @product.new_record? ? "Add Product" : "Update Product", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<%= stylesheet_link_tag 'products', media: 'all', 'data-turbolinks-track': 'reload' %>

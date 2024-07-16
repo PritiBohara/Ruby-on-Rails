@@ -12,6 +12,15 @@ Rails.application.routes.draw do
   
   get "products", to: 'products#index', as: "products_index"
   resources  :products
+  # config/routes.rb
+  resources :products do
+    collection do
+      get 'export_excel', to: 'products#export_excel'
+    end
+  end
+
+
+  
  # resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
   root "main#index"
 
