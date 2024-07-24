@@ -76,11 +76,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'smtp.nonstopio.com',
+  address:              'smtp.gmail.com',
   port:                 587,
-  domain:               'nonstopio.com',
+  domain:               'yourdomain.com',
   user_name:            'priti.bohara@nonstopio.com',
-  password:             'P_20@1996b',
+  password:             '',
   authentication:       'plain',
   enable_starttls_auto: true  }
 
