@@ -66,3 +66,32 @@ h1 {
 .error-messages div {
     margin-bottom: 5px;
 }
+.full-height {
+    height: 100vh;
+}
+/* Center the form on the page */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  /* Style the form */
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Adjust the margin for the forgot password link */
+  .forgot-password {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+  }
+  

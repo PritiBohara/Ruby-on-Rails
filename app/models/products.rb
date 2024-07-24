@@ -32,5 +32,5 @@ class Products < ApplicationRecord
     else
       all
     end
-  end
+  end 
 end

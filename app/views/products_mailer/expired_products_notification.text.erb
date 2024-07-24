@@ -1,0 +1,6 @@
+<!-- app/views/products_mailer/expired_products_notification.text.erb -->
+Expired Products:
+
+<% @expired_products.each do |product| %>
+  - Product ID: <%= product.id %>, Name: <%= product.name %>, Expiry Date: <%= product.expiry_date %>
+<% end %>

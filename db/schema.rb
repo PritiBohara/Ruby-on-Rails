@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_15_070644) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_23_162432) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_15_070644) do
     t.boolean "is_inclusive"
     t.string "purchaes_unit"
     t.string "sales_unit"
+    t.date "expiry_date"
   end
 
   create_table "users", force: :cascade do |t|

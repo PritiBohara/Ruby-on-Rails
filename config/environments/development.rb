@@ -76,8 +76,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'localhost',
-    port: 1025  # Mailcatcher default SMTP port
-  }
+  address:              'smtp.nonstopio.com',
+  port:                 587,
+  domain:               'nonstopio.com',
+  user_name:            'priti.bohara@nonstopio.com',
+  password:             'P_20@1996b',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
 
 end

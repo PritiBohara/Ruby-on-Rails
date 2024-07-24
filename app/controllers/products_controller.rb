@@ -5,7 +5,8 @@ class ProductsController < ApplicationController
   
     def index
       if params[:search].present?   #search in List on name and on uuid fields
-        @products = Products.where("name LIKE :search OR uuid LIKE :search", search: "%#{params[:search]}%")
+          @products = Products.where("name LIKE :search OR uuid LIKE :search", search: "%#{params[:search]}%")
+        # @products = Products.search(:search)
       else
         @products = Products.all.sorted    #When using resources this method is used for showing the list of all data
       end
